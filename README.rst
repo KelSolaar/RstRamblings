@@ -1511,3 +1511,682 @@ CCTFs Encoding / Decoding
      'V-Log',
      'ViperLog',
      'sRGB']
+
+
+Recommendation ITU-T H.273 Code points for Video Signal Type Identification
+***************************************************************************
+
+.. code-block:: python
+
+    colour.COLOUR_PRIMARIES_ITUTH273.keys()
+
+.. code-block:: text
+
+    dict_keys([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 22, 23])
+
+.. code-block:: python
+
+    colour.models.describe_video_signal_colour_primaries(1)
+
+.. code-block:: text
+
+    ===============================================================================
+    *                                                                             *
+    *   Colour Primaries: 1                                                       *
+    *   -------------------                                                       *
+    *                                                                             *
+    *   Primaries        : [[ 0.64  0.33]                                         *
+    *                       [ 0.3   0.6 ]                                         *
+    *                       [ 0.15  0.06]]                                        *
+    *   Whitepoint       : [ 0.3127  0.329 ]                                      *
+    *   Whitepoint Name  : D65                                                    *
+    *   NPM              : [[ 0.4123908   0.35758434  0.18048079]                 *
+    *                       [ 0.21263901  0.71516868  0.07219232]                 *
+    *                       [ 0.01933082  0.11919478  0.95053215]]                *
+    *   NPM -1           : [[ 3.24096994 -1.53738318 -0.49861076]                 *
+    *                       [-0.96924364  1.8759675   0.04155506]                 *
+    *                       [ 0.05563008 -0.20397696  1.05697151]]                *
+    *   FFmpeg Constants : ['AVCOL_PRI_BT709', 'BT709']                           *
+    *                                                                             *
+    ===============================================================================
+
+.. code-block:: python
+
+    colour.TRANSFER_CHARACTERISTICS_ITUTH273.keys()
+
+.. code-block:: text
+
+    dict_keys([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19])
+
+.. code-block:: python
+
+    colour.models.describe_video_signal_transfer_characteristics(1)
+
+.. code-block:: text
+
+    ===============================================================================
+    *                                                                             *
+    *   Transfer Characteristics: 1                                               *
+    *   ---------------------------                                               *
+    *                                                                             *
+    *   Function         : <function oetf_BT709 at 0x165bb3550>                   *
+    *   FFmpeg Constants : ['AVCOL_TRC_BT709', 'BT709']                           *
+    *                                                                             *
+    ===============================================================================
+
+.. code-block:: python
+
+    colour.MATRIX_COEFFICIENTS_ITUTH273.keys()
+
+.. code-block:: text
+
+    dict_keys([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15])
+
+.. code-block:: python
+
+    colour.models.describe_video_signal_matrix_coefficients(1)
+
+.. code-block:: text
+
+    ===============================================================================
+    *                                                                             *
+    *   Matrix Coefficients: 1                                                    *
+    *   ----------------------                                                    *
+    *                                                                             *
+    *   Matrix Coefficients : [ 0.2126  0.0722]                                   *
+    *   FFmpeg Constants    : ['AVCOL_SPC_BT709', 'BT709']                        *
+    *                                                                             *
+    ===============================================================================
+
+Colour Notation Systems - ``colour.notation``
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Munsell Value
+*************
+
+.. code-block:: python
+
+    colour.munsell_value(12.23634268)
+
+.. code-block:: text
+
+    4.0824437076525664
+
+.. code-block:: python
+
+    sorted(colour.MUNSELL_VALUE_METHODS)
+
+.. code-block:: text
+
+    ['ASTM D1535',
+     'Ladd 1955',
+     'McCamy 1987',
+     'Moon 1943',
+     'Munsell 1933',
+     'Priest 1920',
+     'Saunderson 1944',
+     'astm2008']
+
+Munsell Colour
+**************
+
+.. code-block:: python
+
+    colour.xyY_to_munsell_colour([0.38736945, 0.35751656, 0.59362000])
+
+.. code-block:: text
+
+    '4.2YR 8.1/5.3'
+
+.. code-block:: python
+
+    colour.munsell_colour_to_xyY("4.2YR 8.1/5.3")
+
+.. code-block:: text
+
+    array([ 0.38736945,  0.35751656,  0.59362   ])
+
+Optical Phenomena - ``colour.phenomena``
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. code-block:: python
+
+    colour.rayleigh_scattering_sd()
+
+.. code-block:: text
+
+    SpectralDistribution([[  3.60000000e+02,   5.99101337e-01],
+                          [  3.61000000e+02,   5.92170690e-01],
+                          [  3.62000000e+02,   5.85341006e-01],
+                          ...
+                          [  7.78000000e+02,   2.55208377e-02],
+                          [  7.79000000e+02,   2.53887969e-02],
+                          [  7.80000000e+02,   2.52576106e-02]],
+                         interpolator=SpragueInterpolator,
+                         interpolator_args={},
+                         extrapolator=Extrapolator,
+                         extrapolator_args={'right': None, 'method': 'Constant', 'left': None})
+
+Light Quality - ``colour.quality``
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Colour Fidelity Index
+*********************
+
+.. code-block:: python
+
+    colour.colour_fidelity_index(colour.SDS_ILLUMINANTS["FL2"])
+
+.. code-block:: text
+
+    70.120825477833037
+
+.. code-block:: python
+
+    sorted(colour.COLOUR_FIDELITY_INDEX_METHODS)
+
+.. code-block:: text
+
+    ['ANSI/IES TM-30-18', 'CIE 2017']
+
+Colour Quality Scale
+********************
+
+.. code-block:: python
+
+    colour.colour_quality_scale(colour.SDS_ILLUMINANTS["FL2"])
+
+.. code-block:: text
+
+    64.111703163816699
+
+.. code-block:: python
+
+    sorted(colour.COLOUR_QUALITY_SCALE_METHODS)
+
+.. code-block:: text
+
+    ['NIST CQS 7.4', 'NIST CQS 9.0']
+
+Colour Rendering Index
+**********************
+
+.. code-block:: python
+
+    colour.colour_rendering_index(colour.SDS_ILLUMINANTS["FL2"])
+
+.. code-block:: text
+
+    64.233724121664807
+
+Academy Spectral Similarity Index (SSI)
+***************************************
+
+.. code-block:: python
+
+    colour.spectral_similarity_index(
+        colour.SDS_ILLUMINANTS["C"], colour.SDS_ILLUMINANTS["D65"]
+    )
+
+.. code-block:: text
+
+    94.0
+
+Spectral Up-Sampling & Recovery - ``colour.recovery``
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Reflectance Recovery
+********************
+
+.. code-block:: python
+
+    colour.XYZ_to_sd([0.20654008, 0.12197225, 0.05136952])
+
+.. code-block:: text
+
+    SpectralDistribution([[  3.60000000e+02,   8.40144095e-02],
+                          [  3.65000000e+02,   8.41264236e-02],
+                          [  3.70000000e+02,   8.40057597e-02],
+                          ...
+                          [  7.70000000e+02,   4.46743012e-01],
+                          [  7.75000000e+02,   4.46817187e-01],
+                          [  7.80000000e+02,   4.46857696e-01]],
+                         SpragueInterpolator,
+                         {},
+                         Extrapolator,
+                         {'method': 'Constant', 'left': None, 'right': None})
+
+.. code-block:: python
+
+    sorted(colour.REFLECTANCE_RECOVERY_METHODS)
+
+.. code-block:: text
+
+    ['Jakob 2019', 'Mallett 2019', 'Meng 2015', 'Otsu 2018', 'Smits 1999']
+
+Camera RGB Sensitivities Recovery
+*********************************
+
+.. code-block:: python
+
+    illuminant = colour.colorimetry.SDS_ILLUMINANTS["D65"]
+    sensitivities = colour.characterisation.MSDS_CAMERA_SENSITIVITIES["Nikon 5100 (NPL)"]
+    reflectances = [
+        sd.copy().align(colour.recovery.SPECTRAL_SHAPE_BASIS_FUNCTIONS_DYER2017)
+        for sd in colour.characterisation.SDS_COLOURCHECKERS["BabelColor Average"].values()
+    ]
+    reflectances = colour.colorimetry.sds_and_msds_to_msds(reflectances)
+    RGB = colour.colorimetry.msds_to_XYZ(
+        reflectances,
+        method="Integration",
+        cmfs=sensitivities,
+        illuminant=illuminant,
+        k=0.01,
+        shape=colour.recovery.SPECTRAL_SHAPE_BASIS_FUNCTIONS_DYER2017,
+    )
+    colour.recovery.RGB_to_msds_camera_sensitivities_Jiang2013(
+        RGB,
+        illuminant,
+        reflectances,
+        colour.recovery.BASIS_FUNCTIONS_DYER2017,
+        colour.recovery.SPECTRAL_SHAPE_BASIS_FUNCTIONS_DYER2017,
+    )
+
+.. code-block:: text
+
+    RGB_CameraSensitivities([[  4.00000000e+02,   7.22815777e-03,   9.22506480e-03,
+                               -9.88368972e-03],
+                             [  4.10000000e+02,  -8.50457609e-03,   1.12777480e-02,
+                                3.86248655e-03],
+                             [  4.20000000e+02,   4.58191132e-02,   7.15520948e-02,
+                                4.04068293e-01],
+                             ...
+                             [  6.80000000e+02,   4.08276173e-02,   5.55290476e-03,
+                                1.39907862e-03],
+                             [  6.90000000e+02,  -3.71437574e-03,   2.50935640e-03,
+                                3.97652622e-04],
+                             [  7.00000000e+02,  -5.62256563e-03,   1.56433970e-03,
+                                5.84726936e-04]],
+                            ['red', 'green', 'blue'],
+                            SpragueInterpolator,
+                            {},
+                            Extrapolator,
+                            {'method': 'Constant', 'left': None, 'right': None})
+
+Correlated Colour Temperature Computation Methods - ``colour.temperature``
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. code-block:: python
+
+    colour.uv_to_CCT([0.1978, 0.3122])
+
+.. code-block:: text
+
+    array([  6.50751282e+03,   3.22335875e-03])
+
+.. code-block:: python
+
+    sorted(colour.UV_TO_CCT_METHODS)
+
+.. code-block:: text
+
+    ['Krystek 1985', 'Ohno 2013', 'Planck 1900', 'Robertson 1968', 'ohno2013', 'robertson1968']
+
+.. code-block:: python
+
+    sorted(colour.XY_TO_CCT_METHODS)
+
+.. code-block:: text
+
+    ['CIE Illuminant D Series',
+     'Hernandez 1999',
+     'Kang 2002',
+     'McCamy 1992',
+     'daylight',
+     'hernandez1999',
+     'kang2002',
+     'mccamy1992']
+
+Colour Volume - ``colour.volume``
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. code-block:: python
+
+    colour.RGB_colourspace_volume_MonteCarlo(colour.RGB_COLOURSPACE_RGB["sRGB"])
+
+.. code-block:: text
+
+    821958.30000000005
+
+Geometry Primitives Generation - ``colour.geometry``
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. code-block:: python
+
+    colour.primitive("Grid")
+
+.. code-block:: text
+
+ (array([ ([-0.5,  0.5,  0. ], [ 0.,  1.], [ 0.,  0.,  1.], [ 0.,  1.,  0.,  1.]),
+           ([ 0.5,  0.5,  0. ], [ 1.,  1.], [ 0.,  0.,  1.], [ 1.,  1.,  0.,  1.]),
+           ([-0.5, -0.5,  0. ], [ 0.,  0.], [ 0.,  0.,  1.], [ 0.,  0.,  0.,  1.]),
+           ([ 0.5, -0.5,  0. ], [ 1.,  0.], [ 0.,  0.,  1.], [ 1.,  0.,  0.,  1.])],
+          dtype=[('position', '<f4', (3,)), ('uv', '<f4', (2,)), ('normal', '<f4', (3,)), ('colour', '<f4', (4,))]), array([[0, 2, 1],
+           [2, 3, 1]], dtype=uint32), array([[0, 2],
+           [2, 3],
+           [3, 1],
+           [1, 0]], dtype=uint32))
+
+.. code-block:: python
+
+    sorted(colour.PRIMITIVE_METHODS)
+
+.. code-block:: text
+
+    ['Cube', 'Grid']
+
+.. code-block:: python
+
+    colour.primitive_vertices("Quad MPL")
+
+.. code-block:: text
+
+    array([[ 0.,  0.,  0.],
+           [ 1.,  0.,  0.],
+           [ 1.,  1.,  0.],
+           [ 0.,  1.,  0.]])
+    sorted(colour.PRIMITIVE_VERTICES_METHODS)
+    ['Cube MPL', 'Grid MPL', 'Quad MPL', 'Sphere']
+
+Plotting - ``colour.plotting``
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Most of the objects are available from the ``colour.plotting`` namespace:
+
+.. code-block:: python
+
+    from colour.plotting import *
+
+    colour_style()
+
+Visible Spectrum
+****************
+
+.. code-block:: python
+
+    plot_visible_spectrum("CIE 1931 2 Degree Standard Observer")
+
+..  image:: https://colour.readthedocs.io/en/develop/_static/Examples_Plotting_Visible_Spectrum.png
+
+Spectral Distribution
+*********************
+
+.. code-block:: python
+
+    plot_single_illuminant_sd("FL1")
+
+..  image:: https://colour.readthedocs.io/en/develop/_static/Examples_Plotting_Illuminant_F1_SD.png
+
+Blackbody
+*********
+
+.. code-block:: python
+
+    blackbody_sds = [
+        colour.sd_blackbody(i, colour.SpectralShape(0, 10000, 10))
+        for i in range(1000, 15000, 1000)
+    ]
+    plot_multi_sds(
+        blackbody_sds,
+        y_label="W / (sr m$^2$) / m",
+        plot_kwargs={"use_sd_colours": True, "normalise_sd_colours": True},
+        legend_location="upper right",
+        bounding_box=(0, 1250, 0, 2.5e6),
+    )
+
+..  image:: https://colour.readthedocs.io/en/develop/_static/Examples_Plotting_Blackbodies.png
+
+Colour Matching Functions
+*************************
+
+.. code-block:: python
+
+    plot_single_cmfs(
+        "Stockman & Sharpe 2 Degree Cone Fundamentals",
+        y_label="Sensitivity",
+        bounding_box=(390, 870, 0, 1.1),
+    )
+
+..  image:: https://colour.readthedocs.io/en/develop/_static/Examples_Plotting_Cone_Fundamentals.png
+
+Luminous Efficiency
+*******************
+
+.. code-block:: python
+
+    sd_mesopic_luminous_efficiency_function = (
+        colour.sd_mesopic_luminous_efficiency_function(0.2)
+    )
+    plot_multi_sds(
+        (
+            sd_mesopic_luminous_efficiency_function,
+            colour.PHOTOPIC_LEFS["CIE 1924 Photopic Standard Observer"],
+            colour.SCOTOPIC_LEFS["CIE 1951 Scotopic Standard Observer"],
+        ),
+        y_label="Luminous Efficiency",
+        legend_location="upper right",
+        y_tighten=True,
+        margins=(0, 0, 0, 0.1),
+    )
+
+..  image:: https://colour.readthedocs.io/en/develop/_static/Examples_Plotting_Luminous_Efficiency.png
+
+Colour Checker
+**************
+
+.. code-block:: python
+
+    from colour.characterisation.dataset.colour_checkers.sds import (
+        COLOURCHECKER_INDEXES_TO_NAMES_MAPPING,
+    )
+
+    plot_multi_sds(
+        [
+            colour.SDS_COLOURCHECKERS["BabelColor Average"][value]
+            for key, value in sorted(COLOURCHECKER_INDEXES_TO_NAMES_MAPPING.items())
+        ],
+        plot_kwargs={
+            "use_sd_colours": True,
+        },
+        title=("BabelColor Average - " "Spectral Distributions"),
+    )
+
+..  image:: https://colour.readthedocs.io/en/develop/_static/Examples_Plotting_BabelColor_Average.png
+
+.. code-block:: python
+
+    plot_single_colour_checker("ColorChecker 2005", text_kwargs={"visible": False})
+
+..  image:: https://colour.readthedocs.io/en/develop/_static/Examples_Plotting_ColorChecker_2005.png
+
+Chromaticities Prediction
+*************************
+
+.. code-block:: python
+
+    plot_corresponding_chromaticities_prediction(2, "Von Kries", "Bianco 2010")
+
+..  image:: https://colour.readthedocs.io/en/develop/_static/Examples_Plotting_Chromaticities_Prediction.png
+
+Chromaticities
+**************
+
+.. code-block:: python
+
+    import numpy as np
+
+    RGB = np.random.random((32, 32, 3))
+    plot_RGB_chromaticities_in_chromaticity_diagram_CIE1931(
+        RGB,
+        "ITU-R BT.709",
+        colourspaces=["ACEScg", "S-Gamut", "Pointer Gamut"],
+    )
+
+..  image:: https://colour.readthedocs.io/en/develop/_static/Examples_Plotting_Chromaticities_CIE_1931_Chromaticity_Diagram.png
+
+Colour Rendering Index Bars
+***************************
+
+.. code-block:: python
+
+    plot_single_sd_colour_rendering_index_bars(colour.SDS_ILLUMINANTS["FL2"])
+
+..  image:: https://colour.readthedocs.io/en/develop/_static/Examples_Plotting_CRI.png
+
+ANSI/IES TM-30-18 Colour Rendition Report
+*****************************************
+
+.. code-block:: python
+
+    plot_single_sd_colour_rendition_report(colour.SDS_ILLUMINANTS["FL2"])
+
+..  image:: https://colour.readthedocs.io/en/develop/_static/Examples_Plotting_Colour_Rendition_Report.png
+
+Gamut Section
+*************
+
+.. code-block:: python
+
+    plot_visible_spectrum_section(section_colours="RGB", section_opacity=0.15)
+
+..  image:: https://colour.readthedocs.io/en/develop/_static/Examples_Plotting_Plot_Visible_Spectrum_Section.png
+
+.. code-block:: python
+
+    plot_RGB_colourspace_section("sRGB", section_colours="RGB", section_opacity=0.15)
+
+..  image:: https://colour.readthedocs.io/en/develop/_static/Examples_Plotting_Plot_RGB_Colourspace_Section.png
+
+Colour Temperature
+******************
+
+.. code-block:: python
+
+    plot_planckian_locus_in_chromaticity_diagram_CIE1960UCS(["A", "B", "C"])
+
+..  image:: https://colour.readthedocs.io/en/develop/_static/Examples_Plotting_CCT_CIE_1960_UCS_Chromaticity_Diagram.png
+
+User Guide
+----------
+
+Installation
+~~~~~~~~~~~~
+
+**Colour** and its primary dependencies can be easily installed from the
+`Python Package Index <https://pypi.org/project/colour-science>`__
+by issuing this command in a shell:
+
+.. code-block:: bash
+
+    $ pip install --user colour-science
+
+The detailed installation procedure for the secondary dependencies is
+described in the `Installation Guide <https://www.colour-science.org/installation-guide>`__.
+
+**Colour** is also available for `Anaconda <https://www.anaconda.com/download>`__
+from *Continuum Analytics* via `conda-forge <https://conda-forge.org>`__:
+
+.. code-block:: bash
+
+    $ conda install -c conda-forge colour-science
+
+Tutorial
+~~~~~~~~
+
+The `static tutorial <https://colour.readthedocs.io/en/develop/tutorial.html>`__
+provides an introduction to **Colour**. An interactive version is available via
+`Google Colab <https://colab.research.google.com/notebook#fileId=1Im9J7or9qyClQCv5sPHmKdyiQbG4898K&offline=true&sandboxMode=true>`__.
+
+How-To
+~~~~~~
+
+The `Google Colab How-To <https://colab.research.google.com/notebook#fileId=1NRcdXSCshivkwoU2nieCvC3y14fx1X4X&offline=true&sandboxMode=true>`__
+guide for **Colour** shows various techniques to solve specific problems and
+highlights some interesting use cases.
+
+Contributing
+~~~~~~~~~~~~
+
+If you would like to contribute to **Colour**, please refer to the following
+`Contributing <https://www.colour-science.org/contributing>`__ guide.
+
+Changes
+~~~~~~~
+
+The changes are viewable on the `Releases <https://github.com/colour-science/colour/releases>`__ page.
+
+Bibliography
+~~~~~~~~~~~~
+
+The bibliography is available on the `Bibliography <https://www.colour-science.org/bibliography>`__ page.
+
+It is also viewable directly from the repository in
+`BibTeX <https://github.com/colour-science/colour/blob/develop/BIBLIOGRAPHY.bib>`__
+format.
+
+API Reference
+-------------
+
+The main technical reference for **Colour** is the *API Reference*:
+
+- `Release <https://colour.readthedocs.io/en/master/reference.html>`__.
+- `Develop <https://colour.readthedocs.io/en/latest/reference.html>`__.
+
+See Also
+--------
+
+Software
+~~~~~~~~
+
+**Python**
+
+- `ColorPy <http://markkness.net/colorpy/ColorPy.html>`__ by Kness, M.
+- `Colorspacious <https://colorspacious.readthedocs.io>`__ by Smith, N. J., et al.
+- `python-colormath <https://python-colormath.readthedocs.io>`__ by Taylor, G., et al.
+
+**Go**
+
+- `go-colorful <https://github.com/lucasb-eyer/go-colorful>`__  by Beyer, L., et al.
+
+**.NET**
+
+- `Colourful <https://github.com/tompazourek/Colourful>`__ by Pažourek, T., et al.
+
+**Julia**
+
+- `Colors.jl <https://github.com/JuliaGraphics/Colors.jl>`__ by Holy, T., et al.
+
+**Matlab & Octave**
+
+- `COLORLAB <https://www.uv.es/vista/vistavalencia/software/colorlab.html>`__ by Malo, J., et al.
+- `Psychtoolbox <http://psychtoolbox.org>`__ by Brainard, D., et al.
+- `The Munsell and Kubelka-Munk Toolbox <http://www.munsellcolourscienceforpainters.com/MunsellAndKubelkaMunkToolbox/MunsellAndKubelkaMunkToolbox.html>`__ by Centore, P.
+
+Code of Conduct
+---------------
+
+The *Code of Conduct*, adapted from the `Contributor Covenant 1.4 <https://www.contributor-covenant.org/version/1/4/code-of-conduct.html>`__,
+is available on the `Code of Conduct <https://www.colour-science.org/code-of-conduct>`__ page.
+
+Contact & Social
+----------------
+
+The *Colour Developers* can be reached via different means:
+
+- `Email <mailto:colour-developers@colour-science.org>`__
+- `Facebook <https://www.facebook.com/python.colour.science>`__
+- `Github Discussions <https://github.com/colour-science/colour/discussions>`__
+- `Gitter <https://gitter.im/colour-science/colour>`__
+- `Twitter <https://twitter.com/colour_science>`__
+
+.. begin-trim-long-description
