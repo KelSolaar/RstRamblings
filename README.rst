@@ -275,8 +275,6 @@ Automatic Colour Conversion Graph - ``colour.graph``
 Starting with version *0.3.14*, **Colour** implements an automatic colour
 conversion graph enabling easier colour conversions.
 
-..  image:: https://colour.readthedocs.io/en/develop/_static/Examples_Colour_Automatic_Conversion_Graph.png
-
 .. code-block:: python
 
     sd = colour.SDS_COLOURCHECKERS["ColorChecker N Ohta"]["dark skin"]
@@ -1512,7 +1510,6 @@ CCTFs Encoding / Decoding
      'ViperLog',
      'sRGB']
 
-
 Recommendation ITU-T H.273 Code points for Video Signal Type Identification
 ***************************************************************************
 
@@ -1916,16 +1913,12 @@ Visible Spectrum
 
     plot_visible_spectrum("CIE 1931 2 Degree Standard Observer")
 
-..  image:: https://colour.readthedocs.io/en/develop/_static/Examples_Plotting_Visible_Spectrum.png
-
 Spectral Distribution
 *********************
 
 .. code-block:: python
 
     plot_single_illuminant_sd("FL1")
-
-..  image:: https://colour.readthedocs.io/en/develop/_static/Examples_Plotting_Illuminant_F1_SD.png
 
 Blackbody
 *********
@@ -1944,8 +1937,6 @@ Blackbody
         bounding_box=(0, 1250, 0, 2.5e6),
     )
 
-..  image:: https://colour.readthedocs.io/en/develop/_static/Examples_Plotting_Blackbodies.png
-
 Colour Matching Functions
 *************************
 
@@ -1956,8 +1947,6 @@ Colour Matching Functions
         y_label="Sensitivity",
         bounding_box=(390, 870, 0, 1.1),
     )
-
-..  image:: https://colour.readthedocs.io/en/develop/_static/Examples_Plotting_Cone_Fundamentals.png
 
 Luminous Efficiency
 *******************
@@ -1979,8 +1968,6 @@ Luminous Efficiency
         margins=(0, 0, 0, 0.1),
     )
 
-..  image:: https://colour.readthedocs.io/en/develop/_static/Examples_Plotting_Luminous_Efficiency.png
-
 Colour Checker
 **************
 
@@ -2001,13 +1988,9 @@ Colour Checker
         title=("BabelColor Average - " "Spectral Distributions"),
     )
 
-..  image:: https://colour.readthedocs.io/en/develop/_static/Examples_Plotting_BabelColor_Average.png
-
 .. code-block:: python
 
     plot_single_colour_checker("ColorChecker 2005", text_kwargs={"visible": False})
-
-..  image:: https://colour.readthedocs.io/en/develop/_static/Examples_Plotting_ColorChecker_2005.png
 
 Chromaticities Prediction
 *************************
@@ -2015,8 +1998,6 @@ Chromaticities Prediction
 .. code-block:: python
 
     plot_corresponding_chromaticities_prediction(2, "Von Kries", "Bianco 2010")
-
-..  image:: https://colour.readthedocs.io/en/develop/_static/Examples_Plotting_Chromaticities_Prediction.png
 
 Chromaticities
 **************
@@ -2032,16 +2013,12 @@ Chromaticities
         colourspaces=["ACEScg", "S-Gamut", "Pointer Gamut"],
     )
 
-..  image:: https://colour.readthedocs.io/en/develop/_static/Examples_Plotting_Chromaticities_CIE_1931_Chromaticity_Diagram.png
-
 Colour Rendering Index Bars
 ***************************
 
 .. code-block:: python
 
     plot_single_sd_colour_rendering_index_bars(colour.SDS_ILLUMINANTS["FL2"])
-
-..  image:: https://colour.readthedocs.io/en/develop/_static/Examples_Plotting_CRI.png
 
 ANSI/IES TM-30-18 Colour Rendition Report
 *****************************************
@@ -2050,8 +2027,6 @@ ANSI/IES TM-30-18 Colour Rendition Report
 
     plot_single_sd_colour_rendition_report(colour.SDS_ILLUMINANTS["FL2"])
 
-..  image:: https://colour.readthedocs.io/en/develop/_static/Examples_Plotting_Colour_Rendition_Report.png
-
 Gamut Section
 *************
 
@@ -2059,13 +2034,9 @@ Gamut Section
 
     plot_visible_spectrum_section(section_colours="RGB", section_opacity=0.15)
 
-..  image:: https://colour.readthedocs.io/en/develop/_static/Examples_Plotting_Plot_Visible_Spectrum_Section.png
-
 .. code-block:: python
 
     plot_RGB_colourspace_section("sRGB", section_colours="RGB", section_opacity=0.15)
-
-..  image:: https://colour.readthedocs.io/en/develop/_static/Examples_Plotting_Plot_RGB_Colourspace_Section.png
 
 Colour Temperature
 ******************
@@ -2073,8 +2044,6 @@ Colour Temperature
 .. code-block:: python
 
     plot_planckian_locus_in_chromaticity_diagram_CIE1960UCS(["A", "B", "C"])
-
-..  image:: https://colour.readthedocs.io/en/develop/_static/Examples_Plotting_CCT_CIE_1960_UCS_Chromaticity_Diagram.png
 
 User Guide
 ----------
@@ -2190,3 +2159,76 @@ The *Colour Developers* can be reached via different means:
 - `Twitter <https://twitter.com/colour_science>`__
 
 .. begin-trim-long-description
+
+Thank You!
+----------
+
+.. raw:: html
+
+    <h3 align="center">Coffee Sponsors</h3>
+
+.. raw:: html
+
+    <table>
+        <tbody>
+            <tr>
+                <td align="center" valign="middle">
+                    <a href="https://opencollective.com/static/images/default-anonymous-logo.svg" target="_blank">
+                        <img width="98px" src="https://opencollective.com/static/images/default-anonymous-logo.svg">
+                    </a>
+                    <p><a href="" target="_blank">Anonymous</a></p>
+                </td>
+                <td align="center" valign="middle">
+                    <a href="https://twitter.com/CLVPTY" target="_blank">
+                        <img width="98px" src="https://pbs.twimg.com/profile_images/973315780388540416/KEddjwch_400x400.jpg">
+                    </a>
+                    <p><a href="https://twitter.com/CLVPTY" target="_blank">Cedric Lejeune</a></p>
+                </td>
+                <td align="center" valign="middle">
+                    <a href="https://dummyimage.com/98x55/f9f9fc/000000.png&text=Your+Logo+Here" target="_blank">
+                        <img width="98px" src="https://dummyimage.com/98x55/f9f9fc/000000.png&text=Your+Logo+Here">
+                    </a>
+                </td>
+                <td align="center" valign="middle">
+                    <a href="https://dummyimage.com/98x55/f9f9fc/000000.png&text=Your+Logo+Here" target="_blank">
+                        <img width="98px" src="https://dummyimage.com/98x55/f9f9fc/000000.png&text=Your+Logo+Here">
+                    </a>
+                </td>
+                <td align="center" valign="middle">
+                    <a href="https://dummyimage.com/98x55/f9f9fc/000000.png&text=Your+Logo+Here" target="_blank">
+                        <img width="98px" src="https://dummyimage.com/98x55/f9f9fc/000000.png&text=Your+Logo+Here">
+                    </a>
+                </td>
+                <td align="center" valign="middle">
+                    <a href="https://dummyimage.com/98x55/f9f9fc/000000.png&text=Your+Logo+Here" target="_blank">
+                        <img width="98px" src="https://dummyimage.com/98x55/f9f9fc/000000.png&text=Your+Logo+Here">
+                    </a>
+                </td>
+                <td align="center" valign="middle">
+                    <a href="https://dummyimage.com/98x55/f9f9fc/000000.png&text=Your+Logo+Here" target="_blank">
+                        <img width="98px" src="https://dummyimage.com/98x55/f9f9fc/000000.png&text=Your+Logo+Here">
+                    </a>
+                </td>
+                <td align="center" valign="middle">
+                    <a href="https://dummyimage.com/98x55/f9f9fc/000000.png&text=Your+Logo+Here" target="_blank">
+                        <img width="98px" src="https://dummyimage.com/98x55/f9f9fc/000000.png&text=Your+Logo+Here">
+                    </a>
+                </td>
+                <td align="center" valign="middle">
+                    <a href="https://dummyimage.com/98x55/f9f9fc/000000.png&text=Your+Logo+Here" target="_blank">
+                        <img width="98px" src="https://dummyimage.com/98x55/f9f9fc/000000.png&text=Your+Logo+Here">
+                    </a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+.. end-trim-long-description
+
+About
+-----
+
+| **Colour** by Colour Developers
+| Copyright 2013 Colour Developers – `colour-developers@colour-science.org <colour-developers@colour-science.org>`__
+| This software is released under terms of BSD-3-Clause: https://opensource.org/licenses/BSD-3-Clause
+| `https://github.com/colour-science/colour <https://github.com/colour-science/colour>`__
