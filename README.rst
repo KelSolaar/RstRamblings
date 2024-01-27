@@ -1,3 +1,76 @@
+.. begin-trim-long-description
+
+.. raw:: html
+
+    <picture>
+        <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/colour-science/colour-branding/master/images/Colour_Logo_Dark_001.svg">
+        <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/colour-science/colour-branding/master/images/Colour_Logo_001.svg">
+        <img style="background:rgb(0, 0, 0, 0) !important;" src="https://raw.githubusercontent.com/colour-science/colour-branding/master/images/Colour_Logo_001.svg">
+    </picture>
+
+.. end-trim-long-description
+
+|
+
+.. start-badges
+
+|NumFOCUS| |actions| |coveralls| |codacy| |version| |zenodo|
+
+.. |NumFOCUS| image:: https://img.shields.io/badge/powered%20by-NumFOCUS-orange.svg?style=flat-square&colorA=E1523D&colorB=007D8A
+    :target: http://numfocus.org
+    :alt: Powered by NumFOCUS
+.. |actions| image:: https://img.shields.io/github/actions/workflow/status/colour-science/colour/.github/workflows/continuous-integration-quality-unit-tests.yml?branch=develop&style=flat-square
+    :target: https://github.com/colour-science/colour/actions
+    :alt: Develop Build Status
+.. |coveralls| image:: http://img.shields.io/coveralls/colour-science/colour/develop.svg?style=flat-square
+    :target: https://coveralls.io/r/colour-science/colour
+    :alt: Coverage Status
+.. |codacy| image:: https://img.shields.io/codacy/grade/1f3b8d3bba7440ba9ebc1170589628b1/develop.svg?style=flat-square
+    :target: https://app.codacy.com/gh/colour-science/colour
+    :alt: Code Grade
+.. |version| image:: https://img.shields.io/pypi/v/colour-science.svg?style=flat-square
+    :target: https://pypi.org/project/colour-science
+    :alt: Package Version
+.. |zenodo| image:: https://img.shields.io/badge/DOI-10.5281/zenodo.10396329-blue.svg?style=flat-square
+    :target: https://dx.doi.org/10.5281/zenodo.10396329
+    :alt: DOI
+
+.. end-badges
+
+`Colour <https://github.com/colour-science/colour>`__ is an open-source
+`Python <https://www.python.org>`__ package providing a comprehensive number
+of algorithms and datasets for colour science.
+
+It is freely available under the
+`BSD-3-Clause <https://opensource.org/licenses/BSD-3-Clause>`__ terms.
+
+**Colour** is an affiliated project of `NumFOCUS <https://numfocus.org>`__, a
+501(c)(3) nonprofit in the United States.
+
+.. contents:: **Table of Contents**
+    :backlinks: none
+    :depth: 2
+
+.. sectnum::
+
+Draft Release Notes
+-------------------
+
+The draft release notes of the
+`develop <https://github.com/colour-science/colour/tree/develop>`__
+branch are available at this
+`url <https://gist.github.com/KelSolaar/4a6ebe9ec3d389f0934b154fec8df51d>`__.
+
+Sponsors
+--------
+
+We are grateful 💖 for the support of our
+`sponsors <https://github.com/colour-science/colour/blob/develop/SPONSORS.rst>`__.
+If you'd like to join them, please consider
+`becoming a sponsor on OpenCollective <https://opencollective.com/colour-science>`__.
+
+.. begin-trim-long-description
+
 .. raw:: html
 
     <h2 align="center">Gold Sponsors</h2>
@@ -184,3 +257,5 @@
             </tr>
         </tbody>
     </table>
+
+.. end-trim-long-description
