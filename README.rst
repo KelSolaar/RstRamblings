@@ -12,31 +12,6 @@
 
 |
 
-.. start-badges
-
-|NumFOCUS| |actions| |coveralls| |codacy| |version| |zenodo|
-
-.. |NumFOCUS| image:: https://img.shields.io/badge/powered%20by-NumFOCUS-orange.svg?style=flat-square&colorA=E1523D&colorB=007D8A
-    :target: http://numfocus.org
-    :alt: Powered by NumFOCUS
-.. |actions| image:: https://img.shields.io/github/actions/workflow/status/colour-science/colour/.github/workflows/continuous-integration-quality-unit-tests.yml?branch=develop&style=flat-square
-    :target: https://github.com/colour-science/colour/actions
-    :alt: Develop Build Status
-.. |coveralls| image:: http://img.shields.io/coveralls/colour-science/colour/develop.svg?style=flat-square
-    :target: https://coveralls.io/r/colour-science/colour
-    :alt: Coverage Status
-.. |codacy| image:: https://img.shields.io/codacy/grade/1f3b8d3bba7440ba9ebc1170589628b1/develop.svg?style=flat-square
-    :target: https://app.codacy.com/gh/colour-science/colour
-    :alt: Code Grade
-.. |version| image:: https://img.shields.io/pypi/v/colour-science.svg?style=flat-square
-    :target: https://pypi.org/project/colour-science
-    :alt: Package Version
-.. |zenodo| image:: https://img.shields.io/badge/DOI-10.5281/zenodo.10396329-blue.svg?style=flat-square
-    :target: https://dx.doi.org/10.5281/zenodo.10396329
-    :alt: DOI
-
-.. end-badges
-
 `Colour <https://github.com/colour-science/colour>`__ is an open-source
 `Python <https://www.python.org>`__ package providing a comprehensive number
 of algorithms and datasets for colour science.
