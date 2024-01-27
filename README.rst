@@ -805,3 +805,709 @@ Luminous Flux, Efficiency & Efficacy Computation
 .. code-block:: text
 
     136.21708031547874
+
+Contrast Sensitivity Function - ``colour.contrast``
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. code-block:: python
+
+    colour.contrast_sensitivity_function(u=4, X_0=60, E=65)
+
+.. code-block:: text
+
+    358.51180789884984
+
+.. code-block:: python
+
+    sorted(colour.CONTRAST_SENSITIVITY_METHODS)
+
+.. code-block:: text
+
+    ['Barten 1999']
+
+Colour Difference - ``colour.difference``
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. code-block:: python
+
+    Lab_1 = [100.00000000, 21.57210357, 272.22819350]
+    Lab_2 = [100.00000000, 426.67945353, 72.39590835]
+    colour.delta_E(Lab_1, Lab_2)
+
+.. code-block:: text
+
+    94.035649026659485
+
+.. code-block:: python
+
+    sorted(colour.DELTA_E_METHODS)
+
+.. code-block:: text
+
+    ['CAM02-LCD',
+     'CAM02-SCD',
+     'CAM02-UCS',
+     'CAM16-LCD',
+     'CAM16-SCD',
+     'CAM16-UCS',
+     'CIE 1976',
+     'CIE 1994',
+     'CIE 2000',
+     'CMC',
+     'DIN99',
+     'ITP',
+     'cie1976',
+     'cie1994',
+     'cie2000']
+
+IO - ``colour.io``
+~~~~~~~~~~~~~~~~~~
+
+Images
+******
+
+.. code-block:: python
+
+    RGB = colour.read_image("Ishihara_Colour_Blindness_Test_Plate_3.png")
+    RGB.shape
+
+.. code-block:: text
+
+    (276, 281, 3)
+
+Look Up Table (LUT) Data
+************************
+
+.. code-block:: python
+
+    LUT = colour.read_LUT("ACES_Proxy_10_to_ACES.cube")
+    print(LUT)
+
+.. code-block:: text
+
+    LUT3x1D - ACES Proxy 10 to ACES
+    -------------------------------
+    Dimensions : 2
+    Domain     : [[0 0 0]
+                  [1 1 1]]
+    Size       : (32, 3)
+
+.. code-block:: python
+
+    RGB = [0.17224810, 0.09170660, 0.06416938]
+    LUT.apply(RGB)
+
+.. code-block:: text
+
+    array([ 0.00575674,  0.00181493,  0.00121419])
+
+Colour Models - ``colour.models``
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+CIE xyY Colourspace
+*******************
+
+.. code-block:: python
+
+    colour.XYZ_to_xyY([0.20654008, 0.12197225, 0.05136952])
+
+.. code-block:: text
+
+    array([ 0.54369557,  0.32107944,  0.12197225])
+
+CIE L*a*b* Colourspace
+**********************
+
+.. code-block:: python
+
+    colour.XYZ_to_Lab([0.20654008, 0.12197225, 0.05136952])
+
+.. code-block:: text
+
+    array([ 41.52787529,  52.63858304,  26.92317922])
+
+CIE L*u*v* Colourspace
+**********************
+
+.. code-block:: python
+
+    colour.XYZ_to_Luv([0.20654008, 0.12197225, 0.05136952])
+
+.. code-block:: text
+
+    array([ 41.52787529,  96.83626054,  17.75210149])
+
+CIE 1960 UCS Colourspace
+************************
+
+.. code-block:: python
+
+    colour.XYZ_to_UCS([0.20654008, 0.12197225, 0.05136952])
+
+.. code-block:: text
+
+    array([ 0.13769339,  0.12197225,  0.1053731 ])
+
+CIE 1964 U*V*W* Colourspace
+***************************
+
+.. code-block:: python
+
+    XYZ = [0.20654008 * 100, 0.12197225 * 100, 0.05136952 * 100]
+    colour.XYZ_to_UVW(XYZ)
+
+.. code-block:: text
+
+    array([ 94.55035725,  11.55536523,  40.54757405])
+
+CAM02-LCD, CAM02-SCD, and CAM02-UCS Colourspaces - Luo, Cui and Li (2006)
+*************************************************************************
+
+.. code-block:: python
+
+    XYZ = [0.20654008 * 100, 0.12197225 * 100, 0.05136952 * 100]
+    XYZ_w = [95.05, 100.00, 108.88]
+    L_A = 318.31
+    Y_b = 20.0
+    surround = colour.VIEWING_CONDITIONS_CIECAM02["Average"]
+    specification = colour.XYZ_to_CIECAM02(XYZ, XYZ_w, L_A, Y_b, surround)
+    JMh = (specification.J, specification.M, specification.h)
+    colour.JMh_CIECAM02_to_CAM02UCS(JMh)
+
+.. code-block:: text
+
+    array([ 47.16899898,  38.72623785,  15.8663383 ])
+
+.. code-block:: python
+
+    XYZ = [0.20654008, 0.12197225, 0.05136952]
+    XYZ_w = [95.05 / 100, 100.00 / 100, 108.88 / 100]
+    colour.XYZ_to_CAM02UCS(XYZ, XYZ_w=XYZ_w, L_A=L_A, Y_b=Y_b)
+
+.. code-block:: text
+
+    array([ 47.16899898,  38.72623785,  15.8663383 ])
+
+CAM16-LCD, CAM16-SCD, and CAM16-UCS Colourspaces - Li et al. (2017)
+*******************************************************************
+
+.. code-block:: python
+
+    XYZ = [0.20654008 * 100, 0.12197225 * 100, 0.05136952 * 100]
+    XYZ_w = [95.05, 100.00, 108.88]
+    L_A = 318.31
+    Y_b = 20.0
+    surround = colour.VIEWING_CONDITIONS_CAM16["Average"]
+    specification = colour.XYZ_to_CAM16(XYZ, XYZ_w, L_A, Y_b, surround)
+    JMh = (specification.J, specification.M, specification.h)
+    colour.JMh_CAM16_to_CAM16UCS(JMh)
+
+.. code-block:: text
+
+    array([ 46.55542238,  40.22460974,  14.25288392])
+
+.. code-block:: python
+
+    XYZ = [0.20654008, 0.12197225, 0.05136952]
+    XYZ_w = [95.05 / 100, 100.00 / 100, 108.88 / 100]
+    colour.XYZ_to_CAM16UCS(XYZ, XYZ_w=XYZ_w, L_A=L_A, Y_b=Y_b)
+
+.. code-block:: text
+
+    array([ 46.55542238,  40.22460974,  14.25288392])
+
+DIN99 Colourspace and DIN99b, DIN99c, DIN99d Refined Formulas
+*************************************************************
+
+.. code-block:: python
+
+    Lab = [41.52787529, 52.63858304, 26.92317922]
+    colour.Lab_to_DIN99(Lab)
+
+.. code-block:: text
+
+    array([ 53.22821988,  28.41634656,   3.89839552])
+
+ICaCb Colourspace
+******************
+
+.. code-block:: python
+
+    XYZ_to_ICaCb(np.array([0.20654008, 0.12197225, 0.05136952]))
+
+.. code-block:: text
+
+    array([ 0.06875297,  0.05753352,  0.02081548])
+
+IgPgTg Colourspace
+******************
+
+.. code-block:: python
+
+    colour.XYZ_to_IgPgTg([0.20654008, 0.12197225, 0.05136952])
+
+.. code-block:: text
+
+    array([ 0.42421258,  0.18632491,  0.10689223])
+
+IPT Colourspace
+***************
+
+.. code-block:: python
+
+    colour.XYZ_to_IPT([0.20654008, 0.12197225, 0.05136952])
+
+.. code-block:: text
+
+    array([ 0.38426191,  0.38487306,  0.18886838])
+
+Jzazbz Colourspace
+******************
+
+.. code-block:: python
+
+    colour.XYZ_to_Jzazbz([0.20654008, 0.12197225, 0.05136952])
+
+.. code-block:: text
+
+    array([ 0.00535048,  0.00924302,  0.00526007])
+
+hdr-CIELAB Colourspace
+**********************
+
+.. code-block:: python
+
+    colour.XYZ_to_hdr_CIELab([0.20654008, 0.12197225, 0.05136952])
+
+.. code-block:: text
+
+    array([ 51.87002062,  60.4763385 ,  32.14551912])
+
+hdr-IPT Colourspace
+*******************
+
+.. code-block:: python
+
+    colour.XYZ_to_hdr_IPT([0.20654008, 0.12197225, 0.05136952])
+
+.. code-block:: text
+
+    array([ 25.18261761, -22.62111297,   3.18511729])
+
+Hunter L,a,b Colour Scale
+*************************
+
+.. code-block:: python
+
+    XYZ = [0.20654008 * 100, 0.12197225 * 100, 0.05136952 * 100]
+    colour.XYZ_to_Hunter_Lab(XYZ)
+
+.. code-block:: text
+
+    array([ 34.92452577,  47.06189858,  14.38615107])
+
+Hunter Rd,a,b Colour Scale
+**************************
+
+.. code-block:: python
+
+    XYZ = [0.20654008 * 100, 0.12197225 * 100, 0.05136952 * 100]
+    colour.XYZ_to_Hunter_Rdab(XYZ)
+
+.. code-block:: text
+
+    array([ 12.197225  ,  57.12537874,  17.46241341])
+
+Oklab Colourspace
+*****************
+
+.. code-block:: python
+
+    colour.XYZ_to_Oklab([0.20654008, 0.12197225, 0.05136952])
+
+.. code-block:: text
+
+    array([ 0.51634019,  0.154695  ,  0.06289579])
+
+OSA UCS Colourspace
+*******************
+
+.. code-block:: python
+
+    XYZ = [0.20654008 * 100, 0.12197225 * 100, 0.05136952 * 100]
+    colour.XYZ_to_OSA_UCS(XYZ)
+
+.. code-block:: text
+
+    array([-3.0049979 ,  2.99713697, -9.66784231])
+
+ProLab Colourspace
+******************
+
+.. code-block:: python
+
+    colour.XYZ_to_ProLab([0.51634019, 0.15469500, 0.06289579])
+
+.. code-block:: text
+
+    array([1.24610688, 2.39525236, 0.41902126])
+
+Ragoo and Farup (2021) Optimised IPT Colourspace
+************************************************
+
+.. code-block:: python
+
+    colour.XYZ_to_IPT_Ragoo2021([0.20654008, 0.12197225, 0.05136952])
+
+.. code-block:: text
+
+    array([ 0.42248243,  0.2910514 ,  0.20410663])
+
+Yrg Colourspace - Kirk (2019)
+*****************************
+
+.. code-block:: python
+
+    colour.XYZ_to_Yrg([0.20654008, 0.12197225, 0.05136952])
+
+.. code-block:: text
+
+    array([ 0.13137801,  0.49037645,  0.37777388])
+
+Y'CbCr Colour Encoding
+**********************
+
+.. code-block:: python
+
+    colour.RGB_to_YCbCr([1.0, 1.0, 1.0])
+
+.. code-block:: text
+
+    array([ 0.92156863,  0.50196078,  0.50196078])
+
+YCoCg Colour Encoding
+*********************
+
+.. code-block:: python
+
+    colour.RGB_to_YCoCg([0.75, 0.75, 0.0])
+
+.. code-block:: text
+
+    array([ 0.5625,  0.375 ,  0.1875])
+
+ICtCp Colour Encoding
+*********************
+
+.. code-block:: python
+
+    colour.RGB_to_ICtCp([0.45620519, 0.03081071, 0.04091952])
+
+.. code-block:: text
+
+    array([ 0.07351364,  0.00475253,  0.09351596])
+
+HSV Colourspace
+***************
+
+.. code-block:: python
+
+    colour.RGB_to_HSV([0.45620519, 0.03081071, 0.04091952])
+
+.. code-block:: text
+
+    array([ 0.99603944,  0.93246304,  0.45620519])
+
+IHLS Colourspace
+****************
+
+.. code-block:: python
+
+    colour.RGB_to_IHLS([0.45620519, 0.03081071, 0.04091952])
+
+.. code-block:: text
+
+    array([ 6.26236117,  0.12197943,  0.42539448])
+
+Prismatic Colourspace
+*********************
+
+.. code-block:: python
+
+    colour.RGB_to_Prismatic([0.25, 0.50, 0.75])
+
+.. code-block:: text
+
+    array([ 0.75      ,  0.16666667,  0.33333333,  0.5       ])
+
+RGB Colourspace and Transformations
+***********************************
+
+.. code-block:: python
+
+    XYZ = [0.21638819, 0.12570000, 0.03847493]
+    illuminant_XYZ = [0.34570, 0.35850]
+    illuminant_RGB = [0.31270, 0.32900]
+    chromatic_adaptation_transform = "Bradford"
+    matrix_XYZ_to_RGB = [
+        [3.24062548, -1.53720797, -0.49862860],
+        [-0.96893071, 1.87575606, 0.04151752],
+        [0.05571012, -0.20402105, 1.05699594],
+    ]
+    colour.XYZ_to_RGB(
+        XYZ,
+        illuminant_XYZ,
+        illuminant_RGB,
+        matrix_XYZ_to_RGB,
+        chromatic_adaptation_transform,
+    )
+
+.. code-block:: text
+
+    array([ 0.45595571,  0.03039702,  0.04087245])
+
+RGB Colourspace Derivation
+**************************
+
+.. code-block:: python
+
+    p = [0.73470, 0.26530, 0.00000, 1.00000, 0.00010, -0.07700]
+    w = [0.32168, 0.33767]
+    colour.normalised_primary_matrix(p, w)
+
+.. code-block:: text
+
+    array([[  9.52552396e-01,   0.00000000e+00,   9.36786317e-05],
+           [  3.43966450e-01,   7.28166097e-01,  -7.21325464e-02],
+           [  0.00000000e+00,   0.00000000e+00,   1.00882518e+00]])
+
+RGB Colourspaces
+****************
+
+.. code-block:: python
+
+    sorted(colour.RGB_COLOURSPACES)
+
+.. code-block:: text
+
+    ['ACES2065-1',
+     'ACEScc',
+     'ACEScct',
+     'ACEScg',
+     'ACESproxy',
+     'ARRI Wide Gamut 3',
+     'ARRI Wide Gamut 4',
+     'Adobe RGB (1998)',
+     'Adobe Wide Gamut RGB',
+     'Apple RGB',
+     'Best RGB',
+     'Beta RGB',
+     'Blackmagic Wide Gamut',
+     'CIE RGB',
+     'Cinema Gamut',
+     'ColorMatch RGB',
+     'DCDM XYZ',
+     'DCI-P3',
+     'DCI-P3-P',
+     'DJI D-Gamut',
+     'DRAGONcolor',
+     'DRAGONcolor2',
+     'DaVinci Wide Gamut',
+     'Display P3',
+     'Don RGB 4',
+     'EBU Tech. 3213-E',
+     'ECI RGB v2',
+     'ERIMM RGB',
+     'Ekta Space PS 5',
+     'F-Gamut',
+     'FilmLight E-Gamut',
+     'ITU-R BT.2020',
+     'ITU-R BT.470 - 525',
+     'ITU-R BT.470 - 625',
+     'ITU-R BT.709',
+     'ITU-T H.273 - 22 Unspecified',
+     'ITU-T H.273 - Generic Film',
+     'Max RGB',
+     'N-Gamut',
+     'NTSC (1953)',
+     'NTSC (1987)',
+     'P3-D65',
+     'PLASA ANSI E1.54',
+     'Pal/Secam',
+     'ProPhoto RGB',
+     'Protune Native',
+     'REDWideGamutRGB',
+     'REDcolor',
+     'REDcolor2',
+     'REDcolor3',
+     'REDcolor4',
+     'RIMM RGB',
+     'ROMM RGB',
+     'Russell RGB',
+     'S-Gamut',
+     'S-Gamut3',
+     'S-Gamut3.Cine',
+     'SMPTE 240M',
+     'SMPTE C',
+     'Sharp RGB',
+     'V-Gamut',
+     'Venice S-Gamut3',
+     'Venice S-Gamut3.Cine',
+     'Xtreme RGB',
+     'aces',
+     'adobe1998',
+     'prophoto',
+     'sRGB']
+
+
+OETFs
+*****
+
+.. code-block:: python
+
+    sorted(colour.OETFS)
+
+.. code-block:: text
+
+    ['ARIB STD-B67',
+     'Blackmagic Film Generation 5',
+     'DaVinci Intermediate',
+     'ITU-R BT.2020',
+     'ITU-R BT.2100 HLG',
+     'ITU-R BT.2100 PQ',
+     'ITU-R BT.601',
+     'ITU-R BT.709',
+     'ITU-T H.273 IEC 61966-2',
+     'ITU-T H.273 Log',
+     'ITU-T H.273 Log Sqrt',
+     'SMPTE 240M']
+
+
+EOTFs
+*****
+
+.. code-block:: python
+
+    sorted(colour.EOTFS)
+
+.. code-block:: text
+
+    ['DCDM',
+     'DICOM GSDF',
+     'ITU-R BT.1886',
+     'ITU-R BT.2100 HLG',
+     'ITU-R BT.2100 PQ',
+     'ITU-T H.273 ST.428-1',
+     'SMPTE 240M',
+     'ST 2084',
+     'sRGB']
+
+OOTFs
+*****
+
+.. code-block:: python
+
+    sorted(colour.OOTFS)
+
+.. code-block:: text
+
+    ['ITU-R BT.2100 HLG', 'ITU-R BT.2100 PQ']
+
+
+Log Encoding / Decoding
+***********************
+
+.. code-block:: python
+
+    sorted(colour.LOG_ENCODINGS)
+
+.. code-block:: text
+
+    ['ACEScc',
+     'ACEScct',
+     'ACESproxy',
+     'Apple Log Profile',
+     'ARRI LogC3',
+     'ARRI LogC4',
+     'Canon Log',
+     'Canon Log 2',
+     'Canon Log 3',
+     'Cineon',
+     'D-Log',
+     'ERIMM RGB',
+     'F-Log',
+     'F-Log2',
+     'Filmic Pro 6',
+     'L-Log',
+     'Log2',
+     'Log3G10',
+     'Log3G12',
+     'N-Log',
+     'PLog',
+     'Panalog',
+     'Protune',
+     'REDLog',
+     'REDLogFilm',
+     'S-Log',
+     'S-Log2',
+     'S-Log3',
+     'T-Log',
+     'V-Log',
+     'ViperLog']
+
+CCTFs Encoding / Decoding
+*************************
+
+.. code-block:: python
+
+    sorted(colour.CCTF_ENCODINGS)
+
+.. code-block:: text
+
+    ['ACEScc',
+     'ACEScct',
+     'ACESproxy',
+     'Apple Log Profile',
+     'ARRI LogC3',
+     'ARRI LogC4',
+     'ARIB STD-B67',
+     'Canon Log',
+     'Canon Log 2',
+     'Canon Log 3',
+     'Cineon',
+     'D-Log',
+     'DCDM',
+     'DICOM GSDF',
+     'ERIMM RGB',
+     'F-Log',
+     'F-Log2',
+     'Filmic Pro 6',
+     'Gamma 2.2',
+     'Gamma 2.4',
+     'Gamma 2.6',
+     'ITU-R BT.1886',
+     'ITU-R BT.2020',
+     'ITU-R BT.2100 HLG',
+     'ITU-R BT.2100 PQ',
+     'ITU-R BT.601',
+     'ITU-R BT.709',
+     'Log2',
+     'Log3G10',
+     'Log3G12',
+     'PLog',
+     'Panalog',
+     'ProPhoto RGB',
+     'Protune',
+     'REDLog',
+     'REDLogFilm',
+     'RIMM RGB',
+     'ROMM RGB',
+     'S-Log',
+     'S-Log2',
+     'S-Log3',
+     'SMPTE 240M',
+     'ST 2084',
+     'T-Log',
+     'V-Log',
+     'ViperLog',
+     'sRGB']
